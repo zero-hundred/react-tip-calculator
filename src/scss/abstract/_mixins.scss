@@ -1,0 +1,45 @@
+@mixin smallHeader {
+    font-size: 1.6rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+@mixin largeText {
+    font-size: 4.8rem;
+    font-weight: 700;
+    color: $cyan-strong;
+}
+
+@mixin btnText {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+@mixin iconSize-Layout {
+    width: 1.3rem;
+    height: 1.6rem;
+}
+
+@mixin subText {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $cyan-dark-grayish;
+}
+
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin focusBorder {
+    border: 2px solid $cyan-strong;
+}
+
+@mixin deniedBorder {
+    border: 2px solid #E17052;
+}
+@mixin caratColorTeal {
+    caret-color: $cyan-strong;
+}

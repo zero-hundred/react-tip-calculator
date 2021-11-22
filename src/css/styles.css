@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  background-color: #c5e4e7; }
+
+* {
+  font-family: 'Space Mono', monospace; }
+
+.smallHeader {
+  font-size: 1.6rem; }
+  .smallHeader.bill_header {
+    color: #5e7a7d; }
+  .smallHeader .tipTotal_header {
+    color: white; }
+
+input[type="number"] {
+  caret-color: #26c0ab;
+  text-align: right;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: right;
+  color: #00494d; }
+
+.bill {
+  width: 38rem;
+  height: 39rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .bill_header {
+    margin-bottom: 0.6rem;
+    position: relative; }
+    .bill_header.noPeople {
+      color: red;
+      position: absolute;
+      right: 0; }
+  .bill_container--input {
+    position: relative; }
+  .bill_container--select {
+    height: 15.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+  .bill_select--input {
+    display: none; }
+    .bill_select--input-custom {
+      background: none;
+      border: none;
+      border-radius: 0.5rem;
+      width: 9rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      .bill_select--input-custom::placeholder {
+        color: #5e7a7d; }
+      .bill_select--input-custom:focus {
+        outline: none; }
+  .bill_select--label {
+    position: relative;
+    background-color: #00494d;
+    width: 11.7rem;
+    height: 4.8rem;
+    margin: 1.6rem 0 0;
+    border-radius: 0.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: white; }
+    .bill_select--label span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+    .bill_select--label.custom {
+      background-color: #f4fafa; }
+  .bill_icon {
+    position: absolute;
+    top: 50%;
+    left: 1.9rem;
+    transform: translateY(-50%); }
+  .bill_input {
+    height: 4.8rem;
+    width: 100%;
+    border: none;
+    background-color: #f4fafa;
+    border-radius: 0.5rem;
+    padding: 0 1.9rem; }
+    .bill_input:focus {
+      outline: 2px solid #26c0ab; }
+      .bill_input:focus.noPeople {
+        outline: 2px solid red; }
+    .bill_input::placeholder {
+      color: rgba(127, 156, 159, 0.7); }
+    .bill_input.noPeople {
+      outline: 2px solid red; }
+
+.bill_select--input:checked + .bill_select--label {
+  background-color: #a1e8e0;
+  color: #00494d; }
+
+.bill_select--input:checked + .bill_select--label.custom {
+  background-color: #f4fafa;
+  border: 2px solid #26c0ab; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input[type=number] {
+  -moz-appearance: textfield; }
+
+button, label {
+  cursor: pointer; }
+
+.tip {
+  width: 41.3rem;
+  height: 41.7rem;
+  padding: 4rem;
+  background-color: #00494d;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .tip_container {
+    height: 15.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .tip_container--duo {
+      height: 7.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+  .tip_header {
+    color: white; }
+  .tip_subHeader {
+    color: #7f9c9f;
+    font-size: 1.3rem; }
+  .tip_number {
+    font-size: 4.8rem;
+    color: #26c0ab; }
+
+#resetBtn {
+  height: 4.8rem;
+  background-color: #26c0ab;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00494d; }
+  #resetBtn:active {
+    background-color: #a1e8e0; }
+  #resetBtn.empty {
+    background-color: #0D686D; }
+
+.card {
+  width: 92rem;
+  height: 48rem;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-between;
+  padding: 3.2rem; }
+
+.header {
+  margin: 8% auto 8.7rem; }
+  .header_image {
+    display: block;
+    margin: 0 auto; }
