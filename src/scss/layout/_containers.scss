@@ -1,0 +1,105 @@
+.container {
+
+    &.bill {
+        width: 38rem;
+        height: 39rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include breakpoint(tablet) {
+            width: 40rem;
+            height: 43.6rem;
+            margin-bottom: 3.2rem;
+        }
+        @include breakpoint(mobile) {
+            width: 31rem;
+        }
+    }
+
+    &_numInput {
+        position: relative;
+    }
+    &_tipBtns {
+        height: 15.2rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &.tip {
+        width: 41.3rem;
+        height: 41.7rem;
+        padding: 4rem;
+        background-color: $cyan-very-Dark;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include breakpoint(tablet) {
+            padding: 2.2rem;
+            justify-content: space-around;
+            align-items: center;
+            height: 28rem;
+            width: 41rem;
+        }
+        @include breakpoint(mobile) {
+            height: 25.7rem;
+            width: 32.7rem;
+        }
+    }
+
+    &_pricePer {
+        height: 15.6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include breakpoint(tablet) {
+            height: 11.6rem;
+            width: 28.1rem;
+        }
+    }
+}
+
+.tip {
+    &_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &_header {
+        color: $white-main;
+    }
+
+    &_subHeader {
+        color: $cyan-dark-grayish;
+        font-size: 1.3rem;
+    }
+
+    &_number {
+        font-size: 4.8rem;
+        color: $cyan-strong;
+
+        @include breakpoint(tablet) {
+            font-size: 3.2rem;
+        }
+    }
+}
+
+
+
+.bill {
+    &_buttons {
+        @include breakpoint(mobile) {
+            height: 21.6rem;
+        }
+    }
+
+    &_numberInput {
+        position: relative;
+    }
+}

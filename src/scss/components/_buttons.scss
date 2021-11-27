@@ -1,3 +1,28 @@
 button, label {
     cursor: pointer;
 }
+
+#resetBtn {
+    height: 4.8rem;
+    background-color: $cyan-strong;
+    border: none;
+    border-radius: 0.5rem;
+
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $cyan-very-Dark;
+
+    &:active {
+        background-color: $cyan-light;
+    }
+
+    &.empty {
+        background-color: #0D686D;
+    }
+
+    @include breakpoint(tablet) {
+        margin-top: 3.2rem;
+        width: 28.1rem;
+    }
+}

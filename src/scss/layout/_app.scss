@@ -1,4 +1,5 @@
 .card {
+    max-width: 100%;
     width: 92rem;
     height: 48rem;
     background-color: $white-main;
@@ -8,4 +9,10 @@
     display: flex;
     justify-content: space-between;
     padding: 3.2rem;
+
+    @include breakpoint(tablet) {
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+    }
 }

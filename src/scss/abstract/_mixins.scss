@@ -43,3 +43,12 @@
 @mixin caratColorTeal {
     caret-color: $cyan-strong;
 }
+
+@mixin breakpoint($point) {
+    @if $point == tablet {
+        @media (max-width: 54em) { @content}
+    };
+    @if $point == mobile {
+        @media (max-width: 37.5em) { @content ; }
+    }
+}

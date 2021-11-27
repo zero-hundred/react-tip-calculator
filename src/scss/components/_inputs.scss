@@ -1,0 +1,103 @@
+#customTip {
+    background: none;
+    border: none;
+    border-radius: 0.5rem;
+    width: 9rem;
+    @include absoluteCenter;
+
+    &::placeholder {
+        color: $cyan-darker-grayish;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+.radio {
+    &_input {display: none;}
+
+    &_label {
+        position: relative;
+        display: inline-block;
+        background-color: $cyan-very-Dark;
+        width: 11.7rem;
+        height: 4.8rem;
+        margin: 1.6rem 0 0;
+        border-radius: 0.5rem;
+
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: $white-main;
+
+        span {
+            @include absoluteCenter;
+        }
+        &.custom {
+            background-color: $cyan-light-grayish;
+        }
+        
+        @include breakpoint(mobile) {
+            width: 14.6rem;
+        }
+    }
+}
+
+.num {
+    &_input {
+        height: 4.8rem;
+        width: 100%;
+        border: none;
+        background-color: $cyan-light-grayish;
+        border-radius: 0.5rem;
+        padding: 0 1.9rem;
+
+        &:focus {
+            outline: 2px solid $cyan-strong;
+    
+            &.noPeople {
+                outline: 2px solid red; 
+            }
+        }
+        &::placeholder {
+            color: rgba($cyan-dark-grayish, 0.7);
+        }
+        &.noPeople {
+            outline: 2px solid red; 
+        }
+    }
+}
+
+.input {
+    &_icon {
+        position: absolute;
+        top: 50%;
+        left: 1.9rem;
+        transform: translateY(-50%);
+    }
+}
+
+.noPeople--header {
+    color: red;
+    position: absolute;
+    right: 0;
+}
+
+.radio_input:checked + .radio_label {
+    background-color: $cyan-strong;
+    color: $cyan-very-Dark;
+}
+.radio_input:checked + .radio_label.custom {
+    background-color: $cyan-light-grayish;
+    @include focusBorder;
+}
+//Remove arrows on number input all but firefox
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+//Remove arrows on number input only firefox
+input[type=text] {
+    -moz-appearance: textfield;
+}
