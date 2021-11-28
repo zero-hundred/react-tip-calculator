@@ -6,17 +6,16 @@
 
 .smallHeader {
     font-size: 1.6rem;
-
-    &.bill_header {
-        color: $cyan-darker-grayish;
-    }
+    margin-bottom: 0.6rem;
+    position: relative;
+    color: $cyan-darker-grayish;
 
     .tipTotal_header {
         color: $white-main;
     }
 }
 
-input[type="number"] {
+input[type="text"] {
     @include caratColorTeal;
     text-align: right;
     font-size: 2.4rem;
