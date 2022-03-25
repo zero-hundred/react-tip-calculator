@@ -2,6 +2,8 @@ import personIcon from "./images/icon-person.svg";
 import dollarIcon from "./images/icon-dollar.svg";
 import { useState, useEffect, useRef } from "react";
 import logo from "./images/logo.svg";
+import PercentBtn from "./components/PercentBtn";
+import CalculatorContext from "./context/CalculatorContext";
 
 // ----- APP FUNCTION START ----- APP FUNCTION START -----
 // ----- APP FUNCTION START ----- APP FUNCTION START -----
@@ -22,7 +24,7 @@ export default function App() {
 
   const customInput = useRef(null)
 
-  function checkFocus(element) {
+  function checkFocus() {
     customInput.current.checked = true;
   }
 
@@ -72,6 +74,7 @@ export default function App() {
         <img src={logo} alt="Splitter Logo" className="header_image"/>
       </header>
 
+    <CalculatorContext>
     <main className="card">
 {/* Starting price container */}
       <section className="bill container">
@@ -93,30 +96,11 @@ export default function App() {
 
     {/* Tip Input & Labels container */}
             <div className="container_tipBtns">
-              <input type="radio" onClick={e => handleTip(e)} value="5" id="five" name="tipCalc" className="radio_input"/>
-              <label htmlFor="five" className="radio_label">
-                <span>5%</span>
-              </label>
-
-              <input type="radio" onClick={e => handleTip(e)} value="10" id="ten" name="tipCalc" className="radio_input"/>
-              <label htmlFor="ten" className="radio_label">
-                <span>10%</span>
-              </label>
-
-              <input type="radio" onClick={e => handleTip(e)} value="15" id="fifteen" name="tipCalc" className="radio_input"/>
-              <label htmlFor="fifteen" className="radio_label">
-                <span>15%</span>
-              </label>
-
-              <input type="radio" onClick={e => handleTip(e)} value="25" id="twenty-five" name="tipCalc" className="radio_input"/>
-              <label htmlFor="twenty-five" className="radio_label">
-                <span>25%</span>
-              </label>
-
-              <input type="radio" onClick={e => handleTip(e)} value="50" id="fifty" name="tipCalc" className="radio_input" />
-              <label htmlFor="fifty" className="radio_label">
-                <span>50%</span>
-              </label>
+              <PercentBtn iD="five" value={5} handleTip={handleTip} />
+              <PercentBtn iD="ten" value={10} handleTip={handleTip} />
+              <PercentBtn iD="fifteen" value={15} handleTip={handleTip} />
+              <PercentBtn iD="twenty-five" value={25} handleTip={handleTip} />
+              <PercentBtn iD="fifty" value={50} handleTip={handleTip} />
 
     {/* Custom Tip container */}
               <input type="radio" ref={customInput} id="custom" name="tipCalc" className="radio_input custom"></input>
@@ -176,11 +160,12 @@ export default function App() {
 
       </section>
     </main>
+    </CalculatorContext>
 
       
-      <div className="App_footer">
+      <div className="footer">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
-        Coded by <a href="https://www.github.com/notkijana" target="_blank" rel="noreferrer">Not Kijana</a>.
+        Not Coded by <a href="https://www.github.com/notkijana" target="_blank" rel="noreferrer">Kijana</a>.
       </div>
     </div>
   );
