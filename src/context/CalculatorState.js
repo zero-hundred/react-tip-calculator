@@ -15,10 +15,8 @@ const CalculatorState = props => {
         people: 0,
         startPrice: null,
         isEmpty: true,
-        noPeople: true
+        noPeople: null
     }
-    const {tip, people,
-    startPrice} = initStates;
 
     const [state, dispatch] = useReducer(CalculatorReducer, initStates);
 
@@ -53,6 +51,9 @@ const CalculatorState = props => {
         })
     }
     function setPeople(newPeople) {
+        if(newPeople > 0) {
+            setNoPeople(false);
+        }
         dispatch({
             type: SET_PEOPLE_NUM,
             payload: newPeople
@@ -64,23 +65,26 @@ const CalculatorState = props => {
             payload: price
         })
     }
+    
     function checkError() {
-        if(people === null) {
-          setNoPeople(false)
-        } else if(people <= 0) {
-          setNoPeople(true)
+        if(state.noPeople === null) {
+            setNoPeople(false)
+        } else if(state.people <= 0) {
+            setNoPeople(true)
         } else {
-          setNoPeople(false)
+            setNoPeople(false)
         }
     }
+
+    // Problem Lies Here
     function checkForm() {
-        if((people !== '' && people > 0) && 
-        (startPrice !== '' && startPrice > 0) &&
-        (tip !== '' && tip > 0)) {
-          var total = (startPrice * Number(tip / 100) + startPrice) / people;
-          setTotalPer(total);
+        if((state.people !== '' && state.people > 0) && 
+        (state.startPrice !== '' && state.startPrice > 0) &&
+        (state.tip > 0)) {
+          var totalPer = (state.startPrice * Number(state.tip / 100) + state.startPrice) / state.people;
+          setTotalPer(totalPer);
     
-          var tipEach = (tip / people);
+          var tipEach = (state.startPrice * Number(state.tip / 100) / state.people);
           setTipPer(tipEach)
           setNoPeople(false);
         }
@@ -88,8 +92,8 @@ const CalculatorState = props => {
 
     function handleTip(e) {
         setTip(Number(e.target.value));
-        setEmpty(false);
         checkForm();
+        setEmpty(false);
     }
     function handlePeople(e) {
         setPeople(Number(e.target.value));
@@ -111,9 +115,12 @@ const CalculatorState = props => {
                 people: state.people,
                 startPrice: state.startPrice,
                 isEmpty: state.isEmpty,
+                noPeople: state.noPeople,
                 handleTip: handleTip,
                 handlePeople: handlePeople,
-                handleStartPrice: handleStartPrice
+                handleStartPrice: handleStartPrice,
+                checkForm: checkForm,
+                checkError: checkError
             }}
         >
             {props.children}
