@@ -3,9 +3,15 @@
 * {
     font-family: 'Space Mono', monospace;
 }
-
+a {
+    color: #e60000;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
 .smallHeader {
-    font-size: 1.6rem;
+    @include smallHeader;
     margin-bottom: 0.6rem;
     position: relative;
     color: $cyan-darker-grayish;
@@ -22,4 +28,16 @@ input[type="text"] {
     font-weight: 700;
     text-align: right;
     color: $cyan-very-Dark;
+}
+
+.fnt {
+    &-24 {
+        font-size: 2.4rem;
+    }
+    &-20 {
+        font-size: 2rem;
+    }
+    &-heavy  {
+        font-weight: 700;
+    }
 }

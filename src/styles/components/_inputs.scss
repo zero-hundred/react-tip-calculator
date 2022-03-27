@@ -26,7 +26,7 @@
         border-radius: 0.5rem;
 
         font-size: 2.4rem;
-        font-weight: 700;
+        font-weight: 700; 
         color: $white-main;
 
         span {
@@ -55,14 +55,14 @@
             outline: 2px solid $cyan-strong;
     
             &.noPeople {
-                outline: 2px solid red; 
+                @include deniedBorder; 
             }
         }
         &::placeholder {
             color: rgba($cyan-dark-grayish, 0.7);
         }
         &.noPeople {
-            outline: 2px solid red; 
+            @include deniedBorder;
         }
     }
 }

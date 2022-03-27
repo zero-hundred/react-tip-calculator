@@ -38,7 +38,7 @@
 }
 
 @mixin deniedBorder {
-    border: 2px solid #E17052;
+    outline: 2px solid red;
 }
 @mixin caratColorTeal {
     caret-color: $cyan-strong;

@@ -9,17 +9,17 @@ const CalculatorReducer = (state, action) => {
         case SET_TOTAL_PER:
             return {
                 ...state,
-                totalPer: action.payload
+                totalEach: action.payload
             }
         case SET_TOTAL_TIP:
             return {
                 ...state,
-                tip: action.payload
+                tipPercent: Number(action.payload)
             }
         case SET_TIP_PER:
             return {
                 ...state,
-                tipPer: action.payload
+                tipEach: action.payload
             }
         case SET_PEOPLE_NUM:
             return {

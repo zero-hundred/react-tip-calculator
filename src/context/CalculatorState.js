@@ -9,10 +9,10 @@ import CalculatorReducer from './CalculatorReducer';
 
 const CalculatorState = props => {
     const initStates = {
-        totalPer: 0,
-        tipPer: 0,
-        tip: null,
-        people: 0,
+        totalEach: 0,
+        tipEach: 0,
+        tipPercent: 0,
+        people: null,
         startPrice: null,
         isEmpty: true,
         noPeople: null
@@ -26,22 +26,22 @@ const CalculatorState = props => {
             payload: setBool
         })
     }
-    function setTotalPer(setBool) {
+    function setTotalEach(totalEach) {
         dispatch({
             type: SET_TOTAL_PER,
-            payload: setBool
+            payload: totalEach
         })
     }
-    function setTipPer(setBool) {
-        dispatch({
-            type: SET_TIP_PER,
-            payload: setBool
-        })
-    }
-    function setTip(newTip) {
+    function setTipPercent(percent) {
         dispatch({
             type: SET_TOTAL_TIP,
-            payload: newTip
+            payload: percent
+        })
+    }
+    function setTipEach(tipEach) {
+        dispatch({
+            type: SET_TIP_PER,
+            payload: tipEach
         })
     }
     function setEmpty(setBool) {
@@ -64,11 +64,11 @@ const CalculatorState = props => {
             type: SET_START_PRICE,
             payload: price
         })
-    }
-    
+    } 
+    // Checks people state
     function checkError() {
-        if(state.noPeople === null) {
-            setNoPeople(false)
+        if(state.people === null) {
+            setNoPeople(null)
         } else if(state.people <= 0) {
             setNoPeople(true)
         } else {
@@ -76,22 +76,24 @@ const CalculatorState = props => {
         }
     }
 
-    // Problem Lies Here
+    // Checks is form is filled
+    // If form filled sets total/tip each
     function checkForm() {
         if((state.people !== '' && state.people > 0) && 
         (state.startPrice !== '' && state.startPrice > 0) &&
-        (state.tip > 0)) {
-          var totalPer = (state.startPrice * Number(state.tip / 100) + state.startPrice) / state.people;
-          setTotalPer(totalPer);
+        (state.tipPercent > 0)) {
+            // Generates total $ per person
+          var totalPer = (state.startPrice * Number(state.tipPercent / 100) + state.startPrice) / state.people;
+          setTotalEach(totalPer);
     
-          var tipEach = (state.startPrice * Number(state.tip / 100) / state.people);
-          setTipPer(tipEach)
-          setNoPeople(false);
+          // Generates tip $ per person
+          var tipEach = (state.startPrice * Number(state.tipPercent / 100) / state.people);
+          setTipEach(tipEach);
         }
     }
 
-    function handleTip(e) {
-        setTip(Number(e.target.value));
+    function handleTipPercent(event) {
+        setTipPercent(event.target.value);
         checkForm();
         setEmpty(false);
     }
@@ -110,13 +112,15 @@ const CalculatorState = props => {
     return (
         <CalculatorContext.Provider
             value={{
-                totalPer: state.totalPer,
-                tipPer: state.tipPer,
+                totalEach: state.totalEach,
+                tipEach: state.tipEach,
+                tipPercent: state.tipPercent,
                 people: state.people,
                 startPrice: state.startPrice,
                 isEmpty: state.isEmpty,
+                setTipPercent: state.setTipPercent,
                 noPeople: state.noPeople,
-                handleTip: handleTip,
+                handleTipPercent: handleTipPercent,
                 handlePeople: handlePeople,
                 handleStartPrice: handleStartPrice,
                 checkForm: checkForm,
